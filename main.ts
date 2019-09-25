@@ -1,4 +1,3 @@
 console.clear();
 
-console.log("Bangarang Peter!!!");
-console.log("Your project is successfully running");
+// See the README.MD for what code we will be writing in this section.
