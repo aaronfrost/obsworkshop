@@ -3,39 +3,19 @@
 This project is a starter for Frosty's Observables workshop. In order
 to get going, please follow the setup instructions below.
 
-## In Step 2
+## In Step 3
 
-In Step 2 of this workshop, we are going to cover two things:
+During this section of the workshop, we will be covering Subjects.
 
-1. Observable creator functions
-   - Of
-   - From
-   - Interval
-   - FromEvent
-   - Any others you want to see? Just ask
-2. Observable combining functions
-   - Merge
-   - Concat
-   - CombineLatest
-   - Zip
-   - ForkJoin
-3. Operators
-   - debounceTime
-   - startWith
-   - filter
-   - distinctUntilChanged
-   - map
-   - switchMap
-   - take
-   - pairwise
-   - tap
-   - Any others you want to see? Just ask
+Subjects are Observables where you can add more data into them after
+they are initialized. They are very powerful Observables that are
+behind some of the more advanced things that the industry is doing
+with RxJS.
 
-During this section of the workshop, I will show one of the most important
-things about learning RxJS: How To Read The Documentation and Marble Diagrams.
-We will spend a lot of time going over concepts and showing the documentation
-so that the workshop attendees are prepared to look up some of their own
-Observables and Operators once the workshop is over.
+The main Subjects that we will cover are
 
-For this section, here is some mock data that we can use. 
-http://www.mocky.io/v2/5d8b1f8b3500005400d46c43
+- Subject
+- ReplaySubject
+- BehaviorSubject (most common)
+
+For this section we will be using index.html

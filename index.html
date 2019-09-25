@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Observables Workshop</title>
+    <script
+      type="application/javascript"
+      src="https://unpkg.com/rxjs@6.5.3/bundles/rxjs.umd.min.js"
+    ></script>
+  </head>
+  <body>
+    <input type="text" placeholder="Type Something" />
+    <button>Click Me To Save</button>
+    <br />
+    <br />
+    <br />
+    <fieldset>
+      <legend>Output</legend>
+      <div id="output"></div>
+    </fieldset>
+    <script type="application/javascript">
+      document.write(
+        '<script src="http://' +
+          (location.host || "localhost").split(":")[0] +
+          ':35729/livereload.js?snipver=1"></' +
+          "script>"
+      );
+    </script>
+    <script type="application/javascript" src="main.js"></script>
+  </body>
+</html>
