@@ -1,0 +1,18 @@
+{
+  "name": "obs1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./dist/main.js",
+    "watch": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.2",
+    "prettier": "^1.18.2",
+    "rxjs": "^6.5.3",
+    "typescript": "^3.6.3"
+  }
+}
