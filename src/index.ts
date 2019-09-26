@@ -17,17 +17,21 @@ const DEFAULT_LIMIT = 10;
 const DEFAULT_PAGE = 0;
 
 const gifsData$ = fromFetch(
-    `https://api.giphy.com/v1/gifs/search?q=${DEFAULT_SEARCH}&offset=${DEFAULT_PAGE *
-        DEFAULT_LIMIT}&limit=${DEFAULT_LIMIT}&api_key=${GIPHY_API_KEY}`,
+    // prettier-ignore
+    `https://api.giphy.com/v1/gifs/search?q=${DEFAULT_SEARCH}&offset=${DEFAULT_PAGE * DEFAULT_LIMIT}&limit=${DEFAULT_LIMIT}&api_key=${GIPHY_API_KEY}`,
 ).pipe(
     // fetch returns a response, and we have to switch to the .json call
     switchMap(response => response.json()),
 );
 
+// Remove just the gifs data from the response
 const gifs$ = gifsData$.pipe(map(data => data.data));
 
 gifs$.subscribe(gifs => {
+    // Clear out all gifs
     elements.gifContainer.innerHTML = '';
+
+    // Create new gifs and add to DOM
     gifs.forEach(gif => {
         const img = document.createElement('img');
         img.src = gif.images.fixed_height_small.url;
