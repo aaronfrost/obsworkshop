@@ -6,4 +6,10 @@ to get going, please follow the setup instructions below.
 ## In Step 4
 
 This Step 4 of this workshop, we will build a small project using Observables.
-This project will use the
+This project will use the Giphy API.
+
+## SETUP
+
+-   `npm install`
+-   `npm run start` // runs the webpack server
+-   open `localhost:5000`
