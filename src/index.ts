@@ -1,5 +1,5 @@
 import './styles.scss';
-import { fromEvent } from 'rxjs';
+import { BehaviorSubject, combineLatest, fromEvent } from 'rxjs';
 import { fromFetch } from 'rxjs/internal/observable/dom/fetch';
 import { map, switchMap } from 'rxjs/operators';
 import { GIPHY_API_KEY } from './constants';
@@ -16,10 +16,22 @@ const DEFAULT_SEARCH = 'HI';
 const DEFAULT_LIMIT = 10;
 const DEFAULT_PAGE = 0;
 
-const gifsData$ = fromFetch(
-    // prettier-ignore
-    `https://api.giphy.com/v1/gifs/search?q=${DEFAULT_SEARCH}&offset=${DEFAULT_PAGE * DEFAULT_LIMIT}&limit=${DEFAULT_LIMIT}&api_key=${GIPHY_API_KEY}`,
-).pipe(
+const search$ = new BehaviorSubject(DEFAULT_SEARCH);
+const limit$ = new BehaviorSubject(DEFAULT_LIMIT);
+const page$ = new BehaviorSubject(DEFAULT_PAGE);
+
+// @ts-ignore
+window._ = { search$, limit$, page$ };
+
+const params$ = combineLatest(search$, limit$, page$);
+
+const gifsData$ = params$.pipe(
+    switchMap(([search, limit, page]) => {
+        return fromFetch(
+            // prettier-ignore
+            `https://api.giphy.com/v1/gifs/search?q=${search}&offset=${page * limit}&limit=${limit}&api_key=${GIPHY_API_KEY}`,
+        );
+    }),
     // fetch returns a response, and we have to switch to the .json call
     switchMap(response => response.json()),
 );
