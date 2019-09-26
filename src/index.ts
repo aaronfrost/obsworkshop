@@ -1,5 +1,5 @@
 import './styles.scss';
-import { BehaviorSubject, combineLatest, fromEvent, of } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { fromFetch } from 'rxjs/internal/observable/dom/fetch';
 import { map, switchMap } from 'rxjs/operators';
 import { GIPHY_API_KEY } from './constants';
