@@ -1,0 +1,11 @@
+.table-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  rx-hero-badge {
+    margin: 10px;
+  }
+}

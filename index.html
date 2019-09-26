@@ -3,8 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <title>Obs Workshop</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://rxjs.dev/assets/images/favicons/favicon.ico"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    Helo
+    <header>
+      <h1 class="bungee">Welcome to {{ title }}!</h1>
+    </header>
+    <my-content-area>
+      <my-tool-bar>
+        <div class="tool-bar">
+          <span class="search-tool">
+            <label>Search: </label>
+            <input
+              name="herosearch"
+              [value]="search$ | async"
+              (keyup)="doSearch($event)"
+            />
+          </span>
+          <span class="page-tool">
+            <label>Page ? of ? : </label>
+            <span class="buttons">
+              <button class="prev">Prev</button>
+              <button class="next">Next</button>
+            </span>
+          </span>
+          <span class="result-tool">
+            <label>Show Results: </label>
+            <span class="buttons">
+              <button *ngFor="let limit of limits">{{ limit }}</button>
+            </span>
+          </span>
+          <span class="total-tool">
+            <label>Total Results: ???</label>
+          </span>
+        </div>
+      </my-tool-bar>
+    </my-content-area>
+    <div class="table-content" *ngIf="heroes$ | async as heroes">
+      <rx-hero-badge *ngFor="let hero of heroes" [hero]="hero"></rx-hero-badge>
+    </div>
   </body>
 </html>
